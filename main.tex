@@ -511,7 +511,7 @@ The remainder of the document shows the various Size and Traceability metrics as
     \item Statistics of post blocks, including number of blocks and lines can be found in Figures \ref{fig:post-block-version-length-boxplot}, \ref{fig:post-block-version-linecount-boxplot} and Table \ref{tab:post-block-version-stats}.
     \item Count of foreign URLs parsed from comments and posts can be found in Table \ref{tab:foreign-urls}.
     \item Posts and corresponding number of answers can be found in Figure \ref{fig:questions-to-num-answers} and Table \ref{table:questions-to-num-answers}.
-    \item Count of Python snippets is approximated in Table \ref{tab:python-snippets-summary}. Code analysis of PostBlockVersion content is \textbf{not} performed. From Posts, I selected all PostIds of questions that had the tag \texttt{python}. I then selected all PostIds for answers that answered the previously selected questions. Combining these two sets of PostIds, I performed summary statistics on the PostBlockVersion where the PostId was contained in this set. This provides an upper bound for possible number of Python code snippets, which I will better calculate in my MSR challenge paper.
+    \item Count of Python snippets is approximated in Table \ref{tab:python-snippets-summary}. Code analysis of PostBlockVersion content is \textbf{not} performed. From Posts, I selected all PostIds of questions that had the tag \texttt{python}. I then selected all PostIds for answers that answered the previously selected questions. Combining these two sets of PostIds, I performed summary statistics on the PostBlockVersion where the PostId was contained in this set and was of type \texttt{CodeBlock}. This provides an upper bound for possible number of Python code snippets, which I will more accurately calculate in my MSR challenge paper.
     \item Rarest badges can be found in Table \ref{tab:rarest-badges}. Popular badges over time can be found in Figure \ref{fig:popular-badges-over-time}.
     \item Questions and answers over time can be found in Figure \ref{fig:q-and-a-over-time}.
     \item Popular tags over time can be found in Figure \ref{fig:popular-tags-over-time}.
@@ -579,7 +579,7 @@ Mean                & 5.152 & 12.61 & 6.64  & 10.35 & 26.09 \\
 Maximum Count       & 2391  & 50481 & 77720 & 26227 & 96314 \\ \hline
 Number of Authors   & 3221661 & 2037004 & 1286402 & 661496 & 2658479 \\
 \end{tabular}
-\caption{User summary statistics for authoring Questions, Answers, and Comments. Only entities with valid User Ids (greater than 0) were considered.}
+\caption{User summary statistics for authoring Questions, Answers, and Comments. Only entities with valid User Ids (greater than 0) were considered. See Figure \ref{fig:author-to-num-entiies}.}
 \label{table:author-to-num-entities}
 \end{table}
 
@@ -604,7 +604,7 @@ Number of Authors   & 3221661 & 2037004 & 1286402 & 661496 & 2658479 \\
     Maximum         & 29996 & 3837  & 29747 & 2576  \\ \hline
     Count Rows      & \multicolumn{2}{c}{129790412} & \multicolumn{2}{c}{82469989} \\
     \end{tabular}
-    \caption{Summary statistics for PostBlockVersions by PostBlockType.}
+    \caption{Summary statistics for PostBlockVersions by PostBlockType. See Figures \ref{fig:post-block-version-length-boxplot}, \ref{fig:post-block-version-linecount-boxplot}.}
     \label{tab:post-block-version-stats}
 \end{table}
 
@@ -657,14 +657,14 @@ Mean            & 72.33 \\
 3rd Quartile    & 87.75 \\
 Maximum Count   & 518   \\
 \end{tabular}
-\caption{Summary statistics of questions and their corresponding number of answers. There are 2261213 questions that remain unanswered.}
+\caption{Summary statistics of questions and their corresponding number of answers. There are 2261213 questions that remain unanswered. See Figure \ref{fig:questions-to-num-answers}.}
 \label{table:questions-to-num-answers}
 \end{table}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=6in]{figures/num_ans_per_question.png}
-    \caption{Count of questions and their corresponding number of answers. There are 2261213 questions that remain unanswered.}
+    \caption{Count of questions and their corresponding number of answers. There are 2261213 questions that remain unanswered. See Table \ref{table:questions-to-num-answers}.}
     \label{fig:questions-to-num-answers}
 \end{figure}
 
