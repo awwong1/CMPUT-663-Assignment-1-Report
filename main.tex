@@ -511,7 +511,7 @@ The remainder of the document shows the various Size and Traceability metrics as
     \item Statistics of post blocks, including number of blocks and lines can be found in Figures \ref{fig:post-block-version-length-boxplot}, \ref{fig:post-block-version-linecount-boxplot} and Table \ref{tab:post-block-version-stats}.
     \item Count of foreign URLs parsed from comments and posts can be found in Table \ref{tab:foreign-urls}.
     \item Posts and corresponding number of answers can be found in Figure \ref{fig:questions-to-num-answers} and Table \ref{table:questions-to-num-answers}.
-    \item TODO: Count of Python Snippets
+    \item Count of Python snippets is approximated in Table \ref{tab:python-snippets-summary}. Code analysis of PostBlockVersion content is \textbf{not} performed. From Posts, I selected all PostIds of questions that had the tag \texttt{python}. I then selected all PostIds for answers that answered the previously selected questions. Combining these two sets of PostIds, I performed summary statistics on the PostBlockVersion where the PostId was contained in this set. This provides an upper bound for possible number of Python code snippets, which I will better calculate in my MSR challenge paper.
     \item Rarest badges can be found in Table \ref{tab:rarest-badges}. Popular badges over time can be found in Figure \ref{fig:popular-badges-over-time}.
     \item Questions and answers over time can be found in Figure \ref{fig:q-and-a-over-time}.
     \item Popular tags over time can be found in Figure \ref{fig:popular-tags-over-time}.
@@ -667,6 +667,23 @@ Maximum Count   & 518   \\
     \caption{Count of questions and their corresponding number of answers. There are 2261213 questions that remain unanswered.}
     \label{fig:questions-to-num-answers}
 \end{figure}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{r|cc}
+    \hline
+    \textbf{Statistic} & \textbf{Length} &\textbf{Line Count} \\ \hline
+    Minimum         & 1     & 1     \\  
+    1st Quartile    & 75    & 2     \\
+    Median          & 172   & 5     \\
+    Mean            & 378.5 & 9.751 \\
+    3rd Quartile    & 394   & 11    \\
+    Maximum         & 29613 & 2066  \\ \hline
+    Upper Bound of Python Code Snippet Count & \multicolumn{2}{c}{6834349} \\
+    \end{tabular}
+    \caption{Summary statistics of PostBlockVersions where the related Post was tagged with \texttt{python}. Posts of type Question are tagged with \texttt{python}. Posts of type Answer are untagged, but are counted in the above table when the entity answers a Question that has been tagged with \texttt{python}.}
+    \label{tab:python-snippets-summary}
+\end{table}
 
 \begin{table}[ht]
     \centering
